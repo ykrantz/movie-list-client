@@ -2,12 +2,14 @@ import { Button } from "@mui/material"
 
 type appProps={
     title?:string;
+    buttonFunc?:()=>void;
+    
 }
 
-const ButtonAtom =({title}:appProps):JSX.Element=>{
+const ButtonAtom =({title,buttonFunc}:appProps):JSX.Element=>{
 
 return <div>
-    <Button>{title}</Button>
+    <Button onClick={buttonFunc}>{title}</Button>
 </div>
 }
 
