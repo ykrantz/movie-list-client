@@ -1,10 +1,13 @@
-import SearchMovie from "../../UI/elements/SearchMovie/SearchMovie"
-import "./BodyMainPage.css"
-const BodyMainPage= ():JSX.Element=>{
+import SearchMovie from "../../UI/elements/SearchMovie/SearchMovie";
+import SearchAndMovieResults from "../../UI/features/SearchAndMovieResults/SearchAndMovieResults";
+import "./BodyMainPage.css";
+const BodyMainPage = (): JSX.Element => {
+  return (
+    <div>
+      <SearchAndMovieResults />
+      {/* <SearchMovie /> */}
+    </div>
+  );
+};
 
-return <div>
-    <SearchMovie/>
-</div>
-}
-
-export default BodyMainPage
+export default BodyMainPage;

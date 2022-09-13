@@ -1,15 +1,18 @@
+import { useContext } from "react";
 import searchMovieFromApi from "../../../../actions/searchMovieFromApi";
+import moviesContex from "../../../../contex/moviesContex";
+import { movieListType } from "../../../../types/types";
 import ButtonAtom from "../../atoms/ButtonAtom/ButtonAtom";
 import InputTextAtom from "../../atoms/InputTextAtom/InputTextAtom";
 
-type movieItemApi = {
-  id?: string;
-  titleText?: { text?: string };
-  primaryImage?: { url?: string };
-  releaseYear?: { year?: string };
-};
+// type movieItemType = {
+//   id?: string;
+//   titleText?: { text?: string };
+//   primaryImage?: { url?: string };
+//   releaseYear?: { year?: string };
+// };
 
-// type movieItemApi = {
+// type movieItemType = {
 //   id: string;
 //   titleText: { text?: string };
 //   primaryImage: { url?: string };
@@ -17,24 +20,40 @@ type movieItemApi = {
 // };
 
 // type appProps = {
-//   handleMovieList: (moviesList: Array<movieItemApi>) => void;
+//   handleMovieList: (moviesList: Array<movieItemType>) => void;
 // };
 // type appProps = {
-//   handleMovieList: (moviesList: Array<movieItemApi>) => void;
+//   handleMovieList: (moviesList: Array<movieItemType>) => void;
 // };
-type appProps = {
-  handleMovieList: (moviesList: Array<movieItemApi> | {}) => void;
-};
+// type appProps = {
+//   // handleMovieList: (moviesList: movieListType | {}) => void;
+//   handleMovieList: (moviesList: movieListType | {}) => void;
+// };
 
-const SearchMovie = ({ handleMovieList }: appProps): JSX.Element => {
+// const SearchMovie = ({ handleMovieList }: appProps): JSX.Element => {
+const SearchMovie = (): JSX.Element => {
+  const moviesCtx = useContext(moviesContex);
+
   const serachMoviesFunc = async () => {
-    const moviesListResults: Array<movieItemApi> | [{}] =
-      // const moviesListResults: Array<movieItemApi> =
-      //TODO: search input from API
-      await searchMovieFromApi("lion king");
-    if (moviesListResults !== undefined) {
-      handleMovieList(moviesListResults);
+    console.log("seraching", moviesCtx?.inputText);
+
+    // const moviesListResults: movieListType | [{}] =
+    // const moviesListResults: movieListType = await searchMovieFromApi(
+    const moviesListResults: any = await searchMovieFromApi(
+      moviesCtx?.inputText
+      // "lion"
+    );
+    // console.log({ moviesListResults });
+
+    // const moviesListResults: Array<movieItemType> =
+    //TODO: search input from API
+    console.log({ moviesListResults }, 10);
+
+    if (moviesListResults) {
+      // moviesCtx?.handleMovieList(moviesListResults.results);
+      moviesCtx?.handleMovieList(moviesListResults?.results);
     }
+    // console.log(moviesCtx?.movieList, 11);
   };
   return (
     <div>

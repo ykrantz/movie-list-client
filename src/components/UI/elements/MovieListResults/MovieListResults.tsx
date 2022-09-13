@@ -1,7 +1,9 @@
+import { useContext } from "react";
 import searchMovieFromApi from "../../../../actions/searchMovieFromApi";
+import moviesContex from "../../../../contex/moviesContex";
 import MovieList from "../../atoms/MovieList/MovieList";
 
-type movieItemApi = {
+type movieItemType = {
   id?: string;
   titleText?: { text?: string };
   primaryImage?: { url?: string };
@@ -9,13 +11,14 @@ type movieItemApi = {
 };
 
 type appProps = {
-  moviesList: Array<movieItemApi>;
+  moviesList: Array<movieItemType>;
 };
 
-const MovieListResults = ({ moviesList }: appProps): JSX.Element => {
+const MovieListResults = (): JSX.Element => {
+  const movieCtx = useContext(moviesContex);
   return (
     <div>
-      <MovieList moviesList={moviesList} />
+      <MovieList moviesList={movieCtx?.movieList || []} />
     </div>
   );
 };

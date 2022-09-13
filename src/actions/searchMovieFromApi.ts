@@ -1,3 +1,4 @@
+import { movieListType } from "../types/types";
 
 
 const axios = require("axios");
@@ -12,12 +13,14 @@ const axios = require("axios");
 
 // }
 
-const searchMovieFromApi=(str:string):any=>{
+// const searchMovieFromApi=(str:string):any=>{
+const searchMovieFromApi=(str:string|undefined):movieListType=>{
 
 // const textToSearch:string= formolizeStrintToURL(str);
 // console.log({textToSearch});
 
-let moviesList: object[]|object={};
+// let moviesList: object[]|object={};
+console.log("serachingg for", {str});
 
     const options = {
         method: 'GET',
@@ -30,7 +33,7 @@ let moviesList: object[]|object={};
       };
       
       return  axios.request(options).then(function (response:any) {
-          // console.log(response.data);
+          console.log(response.data);
           return response.data;
           
         
