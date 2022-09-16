@@ -1,16 +1,21 @@
-import { Button } from "@mui/material"
+// import { Button } from "@mui/material";
 
-type appProps={
-    title?:string;
-    buttonFunc?:()=>void;
-    
-}
+import { Button } from "@mui/material";
 
-const ButtonAtom =({title,buttonFunc}:appProps):JSX.Element=>{
+type appProps = {
+  title?: string | React.ReactElement;
+  buttonFunc?: () => void;
+};
 
-return <div>
-    <Button onClick={buttonFunc}>{title}</Button>
-</div>
-}
+const ButtonAtom = ({ title, buttonFunc }: appProps): JSX.Element => {
+  return (
+    <div>
+      <Button variant="contained" onClick={buttonFunc}>
+        {/* {title?.length && title} */}
+        {title}
+      </Button>
+    </div>
+  );
+};
 
-export default ButtonAtom
+export default ButtonAtom;

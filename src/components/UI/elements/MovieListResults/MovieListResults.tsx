@@ -16,9 +16,14 @@ type appProps = {
 
 const MovieListResults = (): JSX.Element => {
   const movieCtx = useContext(moviesContex);
+
   return (
     <div>
-      <MovieList moviesList={movieCtx?.movieList || []} />
+      {movieCtx?.movieList.length ? (
+        <MovieList moviesList={movieCtx?.movieList || []} />
+      ) : (
+        "Sorry. No movies was found"
+      )}
     </div>
   );
 };

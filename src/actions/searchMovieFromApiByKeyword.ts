@@ -1,6 +1,6 @@
 import { movieListType } from "../types/types";
 
-const LIMIT_NUM_MOVIES = 30;
+
 const axios = require("axios");
 
 
@@ -14,7 +14,7 @@ const axios = require("axios");
 // }
 
 // const searchMovieFromApi=(str:string):any=>{
-const searchMovieFromApi=(str:string|undefined):movieListType=>{
+const searchMovieFromApiByKeyword=(str:string|undefined):movieListType=>{
 
 // const textToSearch:string= formolizeStrintToURL(str);
 // console.log({textToSearch});
@@ -23,10 +23,19 @@ const searchMovieFromApi=(str:string|undefined):movieListType=>{
 
 console.log("serachingg for", {str});
 
-    const options = {
+    // const options = {
+    //     method: 'GET',
+    //     url: `https://moviesdatabase.p.rapidapi.com/titles/search/title/${str}`,
+    //     params: {info: 'mini_info', limit: '10', page: '1', titleType: 'movie'},
+    //     headers: {
+    //       'X-RapidAPI-Key': '40753c6082msh6d9d419e1a62c93p1b3943jsn9c7ef6262732',
+    //       'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+    //     }
+    //   };
+      const options = {
         method: 'GET',
-        url: `https://moviesdatabase.p.rapidapi.com/titles/search/title/${str}`,
-        params: {info: 'mini_info', limit: LIMIT_NUM_MOVIES, page: '1', titleType: 'movie'},
+        url: `https://moviesdatabase.p.rapidapi.com/titles/search/keyword/${str}`,
+        params: {info: 'mini_info', limit: '10', page: '1', titleType: 'movie'},
         headers: {
           'X-RapidAPI-Key': '40753c6082msh6d9d419e1a62c93p1b3943jsn9c7ef6262732',
           'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
@@ -48,4 +57,4 @@ console.log("serachingg for", {str});
 
 
 
-export default searchMovieFromApi
+export default searchMovieFromApiByKeyword

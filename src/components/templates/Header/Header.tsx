@@ -1,7 +1,10 @@
-import "./Header.css"
-const Header= ():JSX.Element=>{
+import "./Header.css";
+const Header = (): JSX.Element => {
+  return (
+    <div>
+      <h1 className="Header-title">The Movie DataBase</h1>
+    </div>
+  );
+};
 
-return <div>header</div>
-}
-
-export default Header
+export default Header;

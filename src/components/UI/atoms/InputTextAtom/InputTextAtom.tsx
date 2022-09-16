@@ -1,15 +1,33 @@
+import { TextField } from "@mui/material";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
+// import TextField from "@mui/material/TextField";
 import React, { useContext, useState } from "react";
 import moviesContex from "../../../../contex/moviesContex";
 
 type appProps = {
   label?: string;
+  funcOnEnterPress: () => void;
 };
 
-const InputTextAtom = ({ label }: appProps): JSX.Element => {
+const InputTextAtom = ({
+  label,
+  funcOnEnterPress: serachMoviesFunc,
+}: appProps): JSX.Element => {
   // const [inputText,setInputText]=useState("");
   const moviesCtx = useContext(moviesContex);
+
+  const handleEnterPress = (ev: React.KeyboardEvent<HTMLInputElement>) => {
+    // console.log(17, ev.key);
+
+    // if (ev.key == "Enter") {
+    //   // alert("dd");
+
+    //   console.log(18);
+    // debugger;
+    serachMoviesFunc();
+    // ev.preventDefault();
+    // }
+  };
 
   //    const handleInputText= (text:string):void =>{
   const handleInputTextAtom = (
@@ -39,6 +57,17 @@ const InputTextAtom = ({ label }: appProps): JSX.Element => {
         variant="outlined"
         value={moviesCtx?.inputText}
         onChange={handleInputTextAtom}
+        onKeyPress={
+          // () => console.log(22)
+          // ev.preventDefault();
+          (ev: React.KeyboardEvent<HTMLInputElement>) => {
+            // console.log(19);
+            if (ev.key === "Enter") {
+              handleEnterPress(ev);
+              ev.preventDefault();
+            }
+          }
+        }
       />
     </Box>
   );

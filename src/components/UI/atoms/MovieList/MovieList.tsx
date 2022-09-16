@@ -18,7 +18,7 @@ type appProps = {
 };
 
 const MovieList = ({ moviesList }: appProps): JSX.Element => {
-  console.log({ moviesList }, 15);
+  // console.log({ moviesList }, 15);
 
   return (
     <Box sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
