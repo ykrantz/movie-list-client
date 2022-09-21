@@ -1,6 +1,7 @@
 import { movieListType } from "../types/types";
 
-const LIMIT_NUM_MOVIES = 30;
+// max LIMIT of movie number is 50
+const LIMIT_NUM_MOVIES = 50 ;
 const axios = require("axios");
 
 

@@ -3,7 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Button, CardActionArea, CardActions } from "@mui/material";
+import { Button, CardActionArea, CardActions, Grid } from "@mui/material";
 // import { Button, CardActionArea, CardActions } from "@mui/material";
 
 type appProps = {
@@ -15,9 +15,9 @@ type appProps = {
 export default function MovieCard({ title, img, year }: appProps) {
   return (
     // <div className="MovieCard-Container">
-    <>
+    <Grid item xs={12} sm={4} lg={3}>
       {/* <Card sx={{ margin: "1%", padding: "20px", marginTop: 3, flex: "20%" }}> */}
-      <Card sx={{ margin: "1%", padding: "20px", marginTop: 3, flex: "20%" }}>
+      <Card sx={{}}>
         <CardActionArea>
           <CardMedia component="img" height="140" image={img} alt={title} />
           <CardContent>
@@ -36,6 +36,6 @@ export default function MovieCard({ title, img, year }: appProps) {
           </Button>
         </CardActions>
       </Card>
-    </>
+    </Grid>
   );
 }

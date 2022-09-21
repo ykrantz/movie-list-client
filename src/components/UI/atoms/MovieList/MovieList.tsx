@@ -6,6 +6,7 @@ import MovieItem from "../MovieItem/MovieItem";
 import { movieListType } from "../../../../types/types";
 import MovieCard from "../MovieCard/MovieCard";
 import "./MovieList.css";
+import { Grid } from "@mui/material";
 
 // type movieItemType = {
 //   id?: string;
@@ -26,24 +27,26 @@ const MovieList = ({ moviesList }: appProps): JSX.Element => {
       {/* <Box sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
         <nav aria-label="main mailbox folders">
           <List> */}
-      {moviesList.length > 1 &&
-        moviesList.map((movie) => (
-          <MovieCard
-            key={movie?.id}
-            title={movie?.titleText?.text}
-            img={movie?.primaryImage?.url}
-            year={movie?.releaseYear?.year}
-          />
-          // <MovieItem
-          //   key={movie?.id}
-          //   title={movie?.titleText?.text}
-          //   img={movie?.primaryImage?.url}
-          //   year={movie?.releaseYear?.year}
-          // />
-        ))}
-      {/* </List>
+      <Grid container spacing={2}>
+        {moviesList.length > 1 &&
+          moviesList.map((movie) => (
+            <MovieCard
+              key={movie?.id}
+              title={movie?.titleText?.text}
+              img={movie?.primaryImage?.url}
+              year={movie?.releaseYear?.year}
+            />
+            // <MovieItem
+            //   key={movie?.id}
+            //   title={movie?.titleText?.text}
+            //   img={movie?.primaryImage?.url}
+            //   year={movie?.releaseYear?.year}
+            // />
+          ))}
+        {/* </List>
         </nav>
       </Box> */}
+      </Grid>
     </div>
   );
 };

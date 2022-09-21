@@ -1,7 +1,7 @@
 .MovieList-container{
-    display: flex;
+    /* display: flex; */
     /* width: 40%; */
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     /* overflow: hidden;
     overflow-x: scroll; */
 }
