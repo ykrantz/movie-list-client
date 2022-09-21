@@ -16,20 +16,33 @@ function App() {
 
   const [movieList, setMovieList] = useState(initialMovieList);
   const [inputText, setInputText] = useState("");
+  const [isUpdateFromServer, setIsUpdateFromServer] = useState(false);
 
   const handleMovieList = (movieList: movieListType) => {
     // console.log({ movieList }, 13);
 
     setMovieList(movieList);
   };
+
   const handleInputText = (text: string) => {
     setInputText(text);
+  };
+
+  const handleIsUpdateFromServer = (isUpdate: boolean) => {
+    setIsUpdateFromServer(isUpdate);
   };
 
   return (
     <div className="App">
       <MoviesContex.Provider
-        value={{ movieList, handleMovieList, inputText, handleInputText }}
+        value={{
+          movieList,
+          handleMovieList,
+          inputText,
+          handleInputText,
+          isUpdateFromServer,
+          handleIsUpdateFromServer,
+        }}
       >
         <HomePage />
       </MoviesContex.Provider>

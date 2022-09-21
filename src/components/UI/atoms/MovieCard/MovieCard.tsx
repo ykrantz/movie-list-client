@@ -14,24 +14,28 @@ type appProps = {
 
 export default function MovieCard({ title, img, year }: appProps) {
   return (
-    <Card sx={{ maxWidth: 345, marginTop: 3 }}>
-      <CardActionArea>
-        <CardMedia component="img" height="140" image={img} alt={title} />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {title} {year && `(${year})`}
-          </Typography>
-          {/* <Typography variant="body2" color="text.secondary">
+    // <div className="MovieCard-Container">
+    <>
+      {/* <Card sx={{ margin: "1%", padding: "20px", marginTop: 3, flex: "20%" }}> */}
+      <Card sx={{ margin: "1%", padding: "20px", marginTop: 3, flex: "20%" }}>
+        <CardActionArea>
+          <CardMedia component="img" height="140" image={img} alt={title} />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {title} {year && `(${year})`}
+            </Typography>
+            {/* <Typography variant="body2" color="text.secondary">
             Lizards are a widespread group of squamate reptiles, with over 6,000
             species, ranging across all continents except Antarctica
           </Typography> */}
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-      </CardActions>
-    </Card>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <Button size="small" color="primary">
+            Share
+          </Button>
+        </CardActions>
+      </Card>
+    </>
   );
 }

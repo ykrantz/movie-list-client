@@ -42,6 +42,7 @@ const SearchMovie = (): JSX.Element => {
 
   const deleteInput = (): void => {
     moviesCtx?.handleInputText("");
+    moviesCtx?.handleIsUpdateFromServer(false);
   };
   const serachMoviesFunc = async () => {
     console.log("seraching", moviesCtx?.inputText);
@@ -70,6 +71,7 @@ const SearchMovie = (): JSX.Element => {
 
       moviesCtx?.handleMovieList(filteredMovieList);
     }
+    moviesCtx?.handleIsUpdateFromServer(true);
     // console.log(moviesCtx?.movieList, 11);
   };
   return (

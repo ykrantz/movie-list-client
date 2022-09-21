@@ -18,11 +18,13 @@ const MovieListResults = (): JSX.Element => {
   const movieCtx = useContext(moviesContex);
 
   return (
-    <div>
+    <div className="MovieListResults-container">
       {movieCtx?.movieList.length ? (
         <MovieList moviesList={movieCtx?.movieList || []} />
-      ) : (
+      ) : movieCtx?.isUpdateFromServer ? (
         "Sorry. No movies was found"
+      ) : (
+        ""
       )}
     </div>
   );
