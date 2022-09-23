@@ -9,8 +9,12 @@ import searchMovieFromApiByKeyword from "../../../../actions/searchMovieFromApiB
 // import { Stack } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
-import { Stack } from "@mui/material";
+import { Grid, Stack } from "@mui/material";
 import ContentPasteSearchIcon from "@mui/icons-material/ContentPasteSearch";
+import { useNavigate } from "react-router-dom";
+
+import "./SearchMovie.css";
+
 // type movieItemType = {
 //   id?: string;
 //   titleText?: { text?: string };
@@ -39,6 +43,7 @@ import ContentPasteSearchIcon from "@mui/icons-material/ContentPasteSearch";
 // const SearchMovie = ({ handleMovieList }: appProps): JSX.Element => {
 const SearchMovie = (): JSX.Element => {
   const moviesCtx = useContext(moviesContex);
+  const navigate = useNavigate();
 
   const deleteInput = (): void => {
     moviesCtx?.handleInputText("");
@@ -72,22 +77,34 @@ const SearchMovie = (): JSX.Element => {
       moviesCtx?.handleMovieList(filteredMovieList);
     }
     moviesCtx?.handleIsUpdateFromServer(true);
+    navigate("/movie-page-results/1");
     // console.log(moviesCtx?.movieList, 11);
   };
   return (
     <div className="SearchMovie-container">
+      {/* <Grid container spacing={2}>
+        <Grid item xs={4}> */}
       <Stack
         direction="row"
-        spacing={2}
+        spacing={1}
         justifyContent="center"
-        alignItems={"center"}
-      >
-        <ButtonAtom title={<ClearIcon />} buttonFunc={deleteInput} />
+        alignItems="center"
 
+        // padding="5"
+      >
+        {/* <Grid item xs={2}> */}
+        <ButtonAtom title={<ClearIcon />} buttonFunc={deleteInput} />
+        {/* </Grid> */}
+        {/* <Grid item xs={6}> */}
         <InputTextAtom label="movie name" funcOnEnterPress={serachMoviesFunc} />
+        {/* </Grid> */}
         {/* <ButtonAtom title="search" buttonFunc={serachMoviesFunc} /> */}
+        {/* <Grid item xs={2}> */}
         <ButtonAtom title={<SearchIcon />} buttonFunc={serachMoviesFunc} />
+        {/* </Grid> */}
       </Stack>
+      {/* </Grid> */}
+      {/* </Grid> */}
     </div>
   );
 };

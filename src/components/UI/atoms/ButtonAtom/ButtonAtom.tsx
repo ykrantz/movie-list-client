@@ -10,7 +10,18 @@ type appProps = {
 const ButtonAtom = ({ title, buttonFunc }: appProps): JSX.Element => {
   return (
     <div>
-      <Button variant="contained" onClick={buttonFunc}>
+      <Button
+        variant="contained"
+        onClick={buttonFunc}
+        style={
+          {
+            // maxWidth: "10px",
+            // paddingLeft: "0",
+            // paddingRight: "0",
+            // padding: "0",
+          }
+        }
+      >
         {/* {title?.length && title} */}
         {title}
       </Button>

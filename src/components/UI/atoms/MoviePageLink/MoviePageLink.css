@@ -1,0 +1,21 @@
+.MoviePageLink-pageLink{
+
+    margin-right: 10px;
+    
+}
+
+.MoviePageLink-pageLink:hover{
+
+    color:  blue;
+    font-weight: bold;
+ 
+    
+}
+
+.MoviePageLink-container{
+    margin: 2vh;
+}
+.MoviePageLink-currentPage{
+    font-weight: bold;
+    color:  blue;
+}

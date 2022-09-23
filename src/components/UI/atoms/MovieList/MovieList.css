@@ -1,4 +1,10 @@
 .MovieList-container{
+    /* width: 80vw; */
+    justify-content: center;
+    text-align: center;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    padding-top: 3vh;
     /* display: flex; */
     /* width: 40%; */
     /* flex-wrap: wrap; */

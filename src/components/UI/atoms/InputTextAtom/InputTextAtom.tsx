@@ -46,7 +46,7 @@ const InputTextAtom = ({
     <Box
       component="form"
       sx={{
-        "& > :not(style)": { m: 1, width: "25ch" },
+        "& > :not(style)": { m: 0.1, width: "20ch" },
       }}
       noValidate
       autoComplete="off"
@@ -57,6 +57,10 @@ const InputTextAtom = ({
         variant="outlined"
         value={moviesCtx?.inputText}
         onChange={handleInputTextAtom}
+        // style={{
+        //   maxWidth: "80%",
+        //   minWidth: "40%",
+        // }}
         onKeyPress={
           // () => console.log(22)
           // ev.preventDefault();
