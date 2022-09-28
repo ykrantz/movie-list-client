@@ -66,7 +66,7 @@ const SearchMovie = (): JSX.Element => {
 
     // const moviesListResults: Array<movieItemType> =
     //TODO: search input from API
-    console.log({ moviesListResults }, 10);
+    // console.log({ moviesListResults }, 10);
 
     if (moviesListResults) {
       const filteredMovieList = filterMovieList(moviesListResults?.results);
@@ -77,7 +77,7 @@ const SearchMovie = (): JSX.Element => {
       moviesCtx?.handleMovieList(filteredMovieList);
     }
     moviesCtx?.handleIsUpdateFromServer(true);
-    navigate("/movie-page-results/1");
+    navigate(`/movie-page-results/${moviesCtx?.inputText}/1`);
     // console.log(moviesCtx?.movieList, 11);
   };
   return (
@@ -93,14 +93,26 @@ const SearchMovie = (): JSX.Element => {
         // padding="5"
       >
         {/* <Grid item xs={2}> */}
-        <ButtonAtom title={<ClearIcon />} buttonFunc={deleteInput} />
+        <ButtonAtom
+          title={<ClearIcon />}
+          buttonFunc={deleteInput}
+          isIcon={true}
+          color="error"
+          tooltipTitle="Clear"
+        />
         {/* </Grid> */}
         {/* <Grid item xs={6}> */}
         <InputTextAtom label="movie name" funcOnEnterPress={serachMoviesFunc} />
         {/* </Grid> */}
         {/* <ButtonAtom title="search" buttonFunc={serachMoviesFunc} /> */}
         {/* <Grid item xs={2}> */}
-        <ButtonAtom title={<SearchIcon />} buttonFunc={serachMoviesFunc} />
+        <ButtonAtom
+          title={<SearchIcon />}
+          buttonFunc={serachMoviesFunc}
+          isIcon={true}
+          color="primary"
+          tooltipTitle="serach movie"
+        />
         {/* </Grid> */}
       </Stack>
       {/* </Grid> */}

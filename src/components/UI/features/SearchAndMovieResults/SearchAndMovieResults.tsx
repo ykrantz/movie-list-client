@@ -4,7 +4,7 @@ import { movieListType } from "../../../../types/types";
 import { MAX_ITEM_IN_PAGE } from "../../../../utils/mainVariables";
 import CircularIndeterminate from "../../atoms/CircularIndeterminate/CircularIndeterminate";
 import MoviePageLink from "../../atoms/MoviePageLink/MoviePageLink";
-import PaginationLink from "../../atoms/PaginationLink/PaginationLink";
+import PaginationLink from "../../atoms/archeive/PaginationLink/PaginationLink";
 import MovieListResults from "../../elements/MovieListResults/MovieListResults";
 import SearchMovie from "../../elements/SearchMovie/SearchMovie";
 

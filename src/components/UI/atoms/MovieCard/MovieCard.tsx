@@ -37,8 +37,20 @@ export default function MovieCard({ title, img, year }: appProps) {
             /> */}
           </React.Suspense>
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              {title} {year && `(${year})`}
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              style={{
+                height:
+                  "3em" /* height is 2x line-height, so two lines will display */,
+                overflow: "hidden",
+              }}
+            >
+              {/* <div className="MovieCard-movietitleAndYear"> */}
+              {title}
+              {year && `(${year})`}
+              {/* </div> */}
             </Typography>
             {/* <Typography variant="body2" color="text.secondary">
             Lizards are a widespread group of squamate reptiles, with over 6,000

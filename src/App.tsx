@@ -22,15 +22,24 @@ function App() {
   //   url: "http://www.example.com",
   // };
   const initialMovieList: movieListType = [];
-
-  const [movieList, setMovieList] = useState(initialMovieList);
-  const [inputText, setInputText] = useState("");
+  localStorage.s = 1;
+  const [movieList, setMovieList] = useState(
+    localStorage.movieList
+      ? JSON.parse(localStorage.movieList)
+      : initialMovieList
+  );
+  const [inputText, setInputText] = useState(
+    localStorage.searchText ? JSON.parse(localStorage.searchText) : ""
+  );
   const [isUpdateFromServer, setIsUpdateFromServer] = useState(false);
-  console.log({ movieList }, 37);
 
   const handleMovieList = (movieList: movieListType) => {
-    // console.log({ movieList }, 13);
+    // console.log({  movieList }, 13);
 
+    localStorage.movieList = JSON.stringify(movieList);
+    localStorage.searchText = JSON.stringify(inputText);
+
+    // localStorage.movieList("1");
     setMovieList(movieList);
   };
 
@@ -59,7 +68,7 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />}></Route>
               <Route
-                path="/movie-page-results/:page"
+                path="/movie-page-results/:text/:page"
                 element={<MovieResultsPage />}
               ></Route>
             </Routes>

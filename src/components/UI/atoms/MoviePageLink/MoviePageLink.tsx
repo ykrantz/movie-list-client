@@ -8,11 +8,13 @@ type appProps = {
 };
 
 const MoviePageLink = ({ numberOfPages, pagesPath }: appProps): JSX.Element => {
-  const { page } = useParams();
+  const { page, text } = useParams();
+
   const pageNums: number[] = [];
   for (let i = 0; i < numberOfPages; i++) {
     pageNums.push(i + 1);
   }
+
   return (
     <div className="MoviePageLink-container">
       {pageNums.map(
@@ -23,7 +25,7 @@ const MoviePageLink = ({ numberOfPages, pagesPath }: appProps): JSX.Element => {
             }`}
             key={num}
             // to={`${pagesPath}/${num}`}
-            to={`${pagesPath}/${num}`}
+            to={`${pagesPath}/${text}/${num}`}
           >
             {num}
           </Link>
