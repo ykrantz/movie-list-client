@@ -4,16 +4,16 @@ import moviesContex from "../../../../contex/moviesContex";
 import CircularIndeterminate from "../../atoms/CircularIndeterminate/CircularIndeterminate";
 // import MovieList from "../../atoms/MovieList/MovieList";
 
-type movieItemType = {
-  id?: string;
-  titleText?: { text?: string };
-  primaryImage?: { url?: string };
-  releaseYear?: { year?: string };
-};
+// type movieItemType = {
+//   id?: string;
+//   titleText?: { text?: string };
+//   primaryImage?: { url?: string };
+//   releaseYear?: { year?: string };
+// };
 
-type appProps = {
-  moviesList: Array<movieItemType>;
-};
+// type appProps = {
+//   moviesList: Array<movieItemType>;
+// };
 
 const MovieList = lazy(() => import("../../atoms/MovieList/MovieList"));
 const MovieListResults = (): JSX.Element => {
