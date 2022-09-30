@@ -1,9 +1,11 @@
-import { lazy, Suspense, useContext } from "react";
+import { useContext } from "react";
 import searchMovieFromApi from "../../../../actions/searchMovieFromApi";
 import moviesContex from "../../../../contex/moviesContex";
 import CircularIndeterminate from "../../atoms/CircularIndeterminate/CircularIndeterminate";
-// import MovieList from "../../atoms/MovieList/MovieList";
-
+import MovieList from "../../atoms/MovieList/MovieList";
+import * as React from "react";
+import { MAX_ITEM_IN_PAGE } from "../../../../utils/mainVariables";
+import MoviePageLink from "../../atoms/MoviePageLink/MoviePageLink";
 // type movieItemType = {
 //   id?: string;
 //   titleText?: { text?: string };
@@ -15,17 +17,29 @@ import CircularIndeterminate from "../../atoms/CircularIndeterminate/CircularInd
 //   moviesList: Array<movieItemType>;
 // };
 
-const MovieList = lazy(() => import("../../atoms/MovieList/MovieList"));
 const MovieListResults = (): JSX.Element => {
   const movieCtx = useContext(moviesContex);
-  // console.log(35, movieCtx?.movieList);
+  // React.useEffect(() => {
+  //   movieCtx?.handleIsLoading(false);
+  // }, [movieCtx?.movieList]);
+  const numberOfPages: number = Math.ceil(
+    Number(movieCtx?.movieList.length) / MAX_ITEM_IN_PAGE
+  );
 
   return (
     <div className="MovieListResults-container">
-      {movieCtx?.movieList.length ? (
-        <Suspense fallback={<CircularIndeterminate />}>
+      {movieCtx?.isLoading ? (
+        <CircularIndeterminate />
+      ) : movieCtx?.movieList.length ? (
+        <>
+          {numberOfPages > 1 && (
+            <MoviePageLink
+              numberOfPages={numberOfPages}
+              pagesPath="/movie-page-results"
+            />
+          )}
           <MovieList moviesList={movieCtx?.movieList || []} />
-        </Suspense>
+        </>
       ) : movieCtx?.isUpdateFromServer ? (
         "Sorry. No movies was found"
       ) : (

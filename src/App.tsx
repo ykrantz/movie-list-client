@@ -28,11 +28,16 @@ function App() {
       ? JSON.parse(localStorage.movieList)
       : initialMovieList
   );
-  const [inputText, setInputText] = useState(
-    localStorage.searchText ? JSON.parse(localStorage.searchText) : ""
-  );
+  // const [inputText, setInputText] = useState(
+  //   localStorage.searchText ? JSON.parse(localStorage.searchText) : ""
+  // );
+  const [inputText, setInputText] = useState("");
   const [isUpdateFromServer, setIsUpdateFromServer] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
+  const handleIsLoading = (isLoading: boolean) => {
+    setIsLoading(isLoading);
+  };
   const handleMovieList = (movieList: movieListType) => {
     // console.log({  movieList }, 13);
 
@@ -61,6 +66,8 @@ function App() {
           handleInputText,
           isUpdateFromServer,
           handleIsUpdateFromServer,
+          isLoading,
+          handleIsLoading,
         }}
       >
         <Suspense fallback={<CircularIndeterminate />}>

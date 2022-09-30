@@ -54,6 +54,8 @@ const SearchMovie = (): JSX.Element => {
 
     // const moviesListResults: movieListType | [{}] =
     // const moviesListResults: movieListType = await searchMovieFromApi(
+    moviesCtx?.handleIsLoading(true);
+
     const moviesListResults: any = await searchMovieFromApi(
       moviesCtx?.inputText
       // "lion"
@@ -67,6 +69,7 @@ const SearchMovie = (): JSX.Element => {
     // const moviesListResults: Array<movieItemType> =
     //TODO: search input from API
     // console.log({ moviesListResults }, 10);
+    moviesCtx?.handleIsLoading(false);
 
     if (moviesListResults) {
       const filteredMovieList = filterMovieList(moviesListResults?.results);
@@ -99,6 +102,7 @@ const SearchMovie = (): JSX.Element => {
           isIcon={true}
           color="error"
           tooltipTitle="Clear"
+          isDisabled={moviesCtx?.inputText ? false : true}
         />
         {/* </Grid> */}
         {/* <Grid item xs={6}> */}
@@ -112,6 +116,7 @@ const SearchMovie = (): JSX.Element => {
           isIcon={true}
           color="primary"
           tooltipTitle="serach movie"
+          isDisabled={moviesCtx?.inputText ? false : true}
         />
         {/* </Grid> */}
       </Stack>

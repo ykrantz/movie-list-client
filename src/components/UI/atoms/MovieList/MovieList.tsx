@@ -2,6 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import { useNavigate, useParams } from "react-router-dom";
+import { useContext } from "react";
 
 import MovieItem from "../archeive/MovieItem/MovieItem";
 import { movieListType } from "../../../../types/types";
@@ -25,14 +26,10 @@ type appProps = {
 };
 
 const MovieList = ({ moviesList }: appProps): JSX.Element => {
-  // console.log({ moviesList }, 15);
-  // console.log(36);
-  //
   const { page, text } = useParams();
-  // const page = 2;
+  const movieCtx = useContext(moviesContex);
 
   const navigate = useNavigate();
-  // console.log({ page }, 32);
 
   const moviesCtx = React.useContext(moviesContex);
   const getCurrentMovieList = React.useCallback((): movieListType => {
@@ -40,14 +37,9 @@ const MovieList = ({ moviesList }: appProps): JSX.Element => {
     const itemStartNum: number = (pageNum - 1) * MAX_ITEM_IN_PAGE;
     const itemEndNum: number = pageNum * MAX_ITEM_IN_PAGE;
     const tempMovieList = moviesList.slice(itemStartNum, itemEndNum);
-    // console.log({ tempMovieList }, 31, { itemStartNum }, { itemEndNum });
 
     return tempMovieList;
   }, [moviesList, page]);
-
-  // const [currentMovieList, setCurrentMovieList] = React.useState(
-  //   moviesList.length > 1 ? getCurrentMovieList() : []
-  // );
 
   const [currentMovieList, setCurrentMovieList] = React.useState(
     moviesList.length > 1 ? getCurrentMovieList() : []

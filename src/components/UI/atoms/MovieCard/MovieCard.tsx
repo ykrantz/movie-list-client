@@ -5,7 +5,8 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions, Grid } from "@mui/material";
 import CircularIndeterminate from "../CircularIndeterminate/CircularIndeterminate";
-// import CardMediaVideo from "./CardMediaVideo/CardMediaVideo";
+import CardMediaVideo from "./CardMediaVideo/CardMediaVideo";
+import ImgTest from "../archeive/ImgTest";
 // import { Button, CardActionArea, CardActions } from "@mui/material";
 
 type appProps = {
@@ -13,11 +14,6 @@ type appProps = {
   img?: string;
   year?: string;
 };
-
-// const CardMedia = React.lazy(() => import("@mui/material/CardMedia"));
-const CardMediaVideo = React.lazy(
-  () => import("./CardMediaVideo/CardMediaVideo")
-);
 
 export default function MovieCard({ title, img, year }: appProps) {
   return (
@@ -28,6 +24,7 @@ export default function MovieCard({ title, img, year }: appProps) {
         <CardActionArea>
           <React.Suspense fallback={<CircularIndeterminate />}>
             <CardMediaVideo image={img} alt={title} />
+            {/* <ImgTest />  */}
             {/* <CardMedia
               component="img"
               height="200 "

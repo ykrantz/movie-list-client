@@ -10,6 +10,8 @@ type MoviesContextType = {
   handleInputText:(inputText:string)=>void,
   isUpdateFromServer:boolean,
   handleIsUpdateFromServer:(isUpdated:boolean)=>void,
+  isLoading:boolean,
+  handleIsLoading:(isUpdated:boolean)=>void, 
 }
 
 // const handleMoviesContex =createContext<MoviesContextInterface | null>(null);

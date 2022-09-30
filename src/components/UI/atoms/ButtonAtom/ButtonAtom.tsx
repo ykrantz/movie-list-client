@@ -10,6 +10,7 @@ type appProps = {
   isIcon: boolean;
   color: "primary" | "error";
   tooltipTitle: string;
+  isDisabled: boolean;
 };
 
 const ButtonAtom = ({
@@ -18,12 +19,18 @@ const ButtonAtom = ({
   isIcon,
   color,
   tooltipTitle,
+  isDisabled = false,
 }: appProps): JSX.Element => {
   return (
     <div>
       <Tooltip title={tooltipTitle}>
         {isIcon ? (
-          <IconButton color={color} onClick={buttonFunc}>
+          <IconButton
+            color={color}
+            onClick={buttonFunc}
+            disabled={isDisabled}
+            // disabled={true}
+          >
             {title}
           </IconButton>
         ) : (

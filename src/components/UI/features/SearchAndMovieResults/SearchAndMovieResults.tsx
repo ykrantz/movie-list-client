@@ -37,21 +37,21 @@ const SearchAndMovieResults = ({ pageNum }: appProps): JSX.Element => {
   // const handleMovieList = (list: movieListType | [{}]): void => {
   //   setMovieList(list);
   // };
-  const numberOfPages: number = Math.ceil(
-    Number(moviesCtx?.movieList.length) / MAX_ITEM_IN_PAGE
-  );
+  // const numberOfPages: number = Math.ceil(
+  //   Number(moviesCtx?.movieList.length) / MAX_ITEM_IN_PAGE
+  // );
 
   return (
     <div>
       {/* <PaginationLink /> */}
       {/* <SearchMovie handleMovieList={handleMovieList:(list: MovieList | [{}):void=>void} /> */}
       <SearchMovie />
-      {numberOfPages > 1 && (
+      {/* {numberOfPages > 1 && (
         <MoviePageLink
           numberOfPages={numberOfPages}
           pagesPath="/movie-page-results"
         />
-      )}
+      )} */}
       {/* <MovieListResults moviesList={moviesList} /> */}
       {/* <Suspense fallback={<CircularIndeterminate />}> */}
       <MovieListResults />
