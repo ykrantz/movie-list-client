@@ -2,13 +2,17 @@
 import { HashLink } from "react-router-hash-link";
 import { useContext } from "react";
 // import movieContex from "../../../contex/moviesContex";
-import MessageNote from "../../UI/atoms/MessageNote/MessageNote";
+// import MessageNote from "../../UI/atoms/MessageNote/MessageNote";
 // import SearchAndMovieResults from "../../UI/features/SearchAndMovieResults/SearchAndMovieResults";
 import "./Footer.css";
+// import messageContex from "../../../contex/messageContex";
+import MessageNote from "../../UI/atoms/MessageNote/MessageNote";
 import messageContex from "../../../contex/messageContex";
+import moviesContex from "../../../contex/moviesContex";
 
 const Footer = (): JSX.Element => {
   const messageCtx = useContext(messageContex);
+  const MovieCtx = useContext(moviesContex);
   return (
     <>
       <div className="Footer-container">
@@ -17,9 +21,11 @@ const Footer = (): JSX.Element => {
           alertKind={messageCtx?.message?.alertKind}
         />
 
-        <HashLink to="#" smooth>
-          return to top
-        </HashLink>
+        {MovieCtx?.movieList && MovieCtx.movieList.length > 0 && (
+          <HashLink to="#" smooth>
+            return to top
+          </HashLink>
+        )}
         {/* <SearchAndMovieResults></SearchAndMovieResults> */}
       </div>
     </>

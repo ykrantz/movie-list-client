@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./SearchMovie.css";
 import messageContex from "../../../../contex/messageContex";
+// import messageContex from "../../../../contex/messageContex";
 
 // type movieItemType = {
 //   id?: string;
@@ -86,6 +87,7 @@ const SearchMovie = (): JSX.Element => {
         navigate(`/movie-page-results/${moviesCtx?.inputText}/1`);
       } else {
         console.log("no answer from server");
+        moviesCtx?.handleMovieList([]);
         messageCtx?.changeMessage("no answer from server", "error");
       }
 

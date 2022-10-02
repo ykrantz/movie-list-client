@@ -2,7 +2,7 @@ import React, { lazy, Suspense, useState } from "react";
 // import logo from "./logo.svg";
 import "./App.css";
 // import HomePage from "./components/pages/HomePage/HomePage";
-import handleMoviesContex from "./contex/moviesContex";
+// import handleMoviesContex from "./contex/moviesContex";
 import MoviesContex from "./contex/moviesContex";
 import { alertType, messageType, movieListType } from "./types/types";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Grid } from "@mui/material";
 import CircularIndeterminate from "./components/UI/atoms/CircularIndeterminate/CircularIndeterminate";
 import MessageContex from "./contex/messageContex";
+import AboutMePage from "./components/pages/AboutMePage/AboutMePage";
 
 const MovieResultsPage = lazy(
   () => import("./components/pages/MovieResultsPage/MovieResultsPage")
@@ -59,7 +60,10 @@ function App() {
   };
 
   const changeMessage = (str: string, type: alertType = "success"): void => {
+    console.log({ str }, 53);
+
     setMessage({ messageStr: str, alertKind: type });
+    console.log({ message }, 54);
 
     setTimeout(() => {
       setMessage(null);
@@ -90,10 +94,12 @@ function App() {
             <Router>
               <Routes>
                 <Route path="/" element={<HomePage />}></Route>
+                <Route path="/search" element={<HomePage />}></Route>
                 <Route
                   path="/movie-page-results/:text/:page"
                   element={<MovieResultsPage />}
                 ></Route>
+                <Route path="/about" element={<AboutMePage />}></Route>
               </Routes>
             </Router>
           </Suspense>

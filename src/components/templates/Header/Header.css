@@ -1,3 +1,12 @@
 .Header-title{
     color: blueviolet;
+    font-size: 3vh;
+    /* width: 30%; */
+}
+
+@media only screen  and (min-width:600px) {
+    .Header-title{
+        /* color:red; */
+        font-size: 5vh;
+    }
 }

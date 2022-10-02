@@ -1,4 +1,4 @@
-import { type } from "os";
+// import { type } from "os";
 import { createContext } from "react";
 import { alertType, messageType, movieListType } from "../types/types";
 

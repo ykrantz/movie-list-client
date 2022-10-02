@@ -1,6 +1,7 @@
 import { Grid } from "@mui/material";
 import BodyMovieResults from "../../templates/BodyMovieResults/BodyMovieResults";
 import Footer from "../../templates/Footer/Footer";
+// import Footer from "../../templates/Footer/Footer";
 import Header from "../../templates/Header/Header";
 
 const MovieResultsPage = (): JSX.Element => {

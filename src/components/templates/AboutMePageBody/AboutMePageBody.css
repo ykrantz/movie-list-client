@@ -1,0 +1,134 @@
+
+
+.AboutMePageBody-linkesDiv {
+  display: flex;
+
+}
+.AboutMePageBody-portfolio{
+  font-size: 4vh;
+  margin-top: 5vh;
+}
+.AboutMePageBody-portfolioTitle{
+
+}
+.AboutMePageBody-linkedinLink{
+
+}
+
+.AboutMePageBody-gitHubLink{
+
+}
+.AboutMePageBody-linkedinIcon {
+
+}
+.AboutMePageBody-page {
+  width: 100vw;
+
+}
+
+.AboutMePageBody-headerContainer {
+ 
+  justify-content: center;
+  align-content: center;
+
+}
+
+.AboutMePageBody-mainPage {
+
+}
+
+
+.AboutMePageBody-title {
+ margin-bottom: 1vh;
+  color:crimson;
+  font-size: 6vh ;
+  margin-right: 10vw;
+ 
+}
+.AboutMePageBody-myCvTitle{
+color: darkgreen;
+margin-top: 0;
+
+}
+.AboutMePageBody-cvDiv {
+
+}
+
+.AboutMePageBody-cvFile {
+  align-content: center;
+}
+.AboutMePageBody-ulDetails {
+
+  margin-top: 1%;
+  margin-left: 20%;
+  display: table;
+}
+
+.AboutMePageBody-aboutMeTitle {
+  justify-content: left;
+
+}
+
+
+@media only screen  and (max-width:600px) {
+ 
+  .AboutMePageBody-mainPage {
+    margin-left: 0px;
+  
+  }
+  .AboutMePageBody-Nav-div{
+    margin-left: 0px;
+    /* margin-top: 60px; */
+  }
+  .AboutMePageBody-page {
+  
+    padding-bottom: 0;
+  }
+ 
+  .AboutMePageBody-aboutMeTitle {
+    /* justify-content: left; */
+    text-align: left;
+
+    font-size: 20px;
+    /* margin -left: 50px; */
+  }
+  .AboutMePageBody-myCvTitle{
+    /* text-align: left;
+    margin-left: 80px; */
+    /* font-size: 20px; */
+  }
+  .AboutMePageBody-portfolio{
+    font-size: 5vw;
+  }
+  .AboutMePageBody-ulDetails {
+    margin-top: 5%;
+    margin-left: 0%;
+    padding-right: 10px;
+      font-size: 3vh;
+      /* font-size: 25px; */
+      /* padding-left: 20px; */
+     
+  }
+  .AboutMePageBody-title{
+    font-size: 25px;
+    margin-left: 0;
+  }
+  .AboutMePageBody-links{
+    display: flex;
+  }
+
+  .AboutMePageBody-linkedinLink{
+   
+    margin-top: 10px;
+    
+  }
+  
+  .AboutMePageBody-gitHubLink{
+    margin-left: 10px;
+    margin-top: 3px;
+  
+    
+  }
+ 
+}
+

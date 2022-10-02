@@ -3,7 +3,7 @@ import searchMovieFromApi from "../../../../actions/searchMovieFromApi";
 import moviesContex from "../../../../contex/moviesContex";
 import CircularIndeterminate from "../../atoms/CircularIndeterminate/CircularIndeterminate";
 import MovieList from "../../atoms/MovieList/MovieList";
-import * as React from "react";
+// import * as React from "react";
 import { MAX_ITEM_IN_PAGE } from "../../../../utils/mainVariables";
 import MoviePageLink from "../../atoms/MoviePageLink/MoviePageLink";
 // type movieItemType = {
