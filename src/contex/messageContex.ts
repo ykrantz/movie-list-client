@@ -1,6 +1,6 @@
 // import { type } from "os";
 import { createContext } from "react";
-import { alertType, messageType, movieListType } from "../types/types";
+import { alertType, messageType } from "../types/types";
 
   
 type MessageContextType = {
