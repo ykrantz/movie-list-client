@@ -1,6 +1,6 @@
 import { type } from "os";
 import { createContext } from "react";
-import { movieListType } from "../types/types";
+import { alertType, messageType, movieListType } from "../types/types";
 
   
 type MoviesContextType = {
@@ -11,8 +11,13 @@ type MoviesContextType = {
   isUpdateFromServer:boolean,
   handleIsUpdateFromServer:(isUpdated:boolean)=>void,
   isLoading:boolean,
-  handleIsLoading:(isUpdated:boolean)=>void, 
+  handleIsLoading:(isUpdated:boolean)=>void,
+  // message:messageType,
+  // changeMessage:(str: string, type: alertType )=> void,
+  // waitingMessage:()=>void, 
 }
+
+
 
 // const handleMoviesContex =createContext<MoviesContextInterface | null>(null);
 export default createContext<MoviesContextType|null>(null)

@@ -14,6 +14,7 @@ import ContentPasteSearchIcon from "@mui/icons-material/ContentPasteSearch";
 import { useNavigate } from "react-router-dom";
 
 import "./SearchMovie.css";
+import messageContex from "../../../../contex/messageContex";
 
 // type movieItemType = {
 //   id?: string;
@@ -43,6 +44,7 @@ import "./SearchMovie.css";
 // const SearchMovie = ({ handleMovieList }: appProps): JSX.Element => {
 const SearchMovie = (): JSX.Element => {
   const moviesCtx = useContext(moviesContex);
+  const messageCtx = useContext(messageContex);
   const navigate = useNavigate();
 
   const deleteInput = (): void => {
@@ -50,38 +52,47 @@ const SearchMovie = (): JSX.Element => {
     moviesCtx?.handleIsUpdateFromServer(false);
   };
   const serachMoviesFunc = async () => {
-    console.log("seraching", moviesCtx?.inputText);
+    try {
+      console.log("seraching", moviesCtx?.inputText);
 
-    // const moviesListResults: movieListType | [{}] =
-    // const moviesListResults: movieListType = await searchMovieFromApi(
-    moviesCtx?.handleIsLoading(true);
+      // const moviesListResults: movieListType | [{}] =
+      // const moviesListResults: movieListType = await searchMovieFromApi(
+      moviesCtx?.handleIsLoading(true);
 
-    const moviesListResults: any = await searchMovieFromApi(
-      moviesCtx?.inputText
-      // "lion"
-    );
-    // const moviesListResults: any = await searchMovieFromApiByKeyword(
-    //   moviesCtx?.inputText
-    //   // "lion"
-    // );
-    // console.log({ moviesListResults });
+      const moviesListResults: any = await searchMovieFromApi(
+        moviesCtx?.inputText
+        // "lion"
+      );
+      console.log({ moviesListResults }, 42);
 
-    // const moviesListResults: Array<movieItemType> =
-    //TODO: search input from API
-    // console.log({ moviesListResults }, 10);
-    moviesCtx?.handleIsLoading(false);
+      // const moviesListResults: any = await searchMovieFromApiByKeyword(
+      //   moviesCtx?.inputText
+      //   // "lion"
+      // );
+      // console.log({ moviesListResults });
 
-    if (moviesListResults) {
-      const filteredMovieList = filterMovieList(moviesListResults?.results);
-      // moviesCtx?.handleMovieList(moviesListResults.results);
-      // moviesCtx?.handleMovieList(moviesListResults?.results);
-      console.log({ filteredMovieList });
+      // const moviesListResults: Array<movieItemType> =
+      //TODO: search input from API
+      // console.log({ moviesListResults }, 10);
+      moviesCtx?.handleIsLoading(false);
+      if (moviesListResults) {
+        moviesCtx?.handleIsUpdateFromServer(true);
+        const filteredMovieList = filterMovieList(moviesListResults?.results);
+        // moviesCtx?.handleMovieList(moviesListResults.results);
+        // moviesCtx?.handleMovieList(moviesListResults?.results);
+        console.log({ filteredMovieList });
 
-      moviesCtx?.handleMovieList(filteredMovieList);
+        moviesCtx?.handleMovieList(filteredMovieList);
+        navigate(`/movie-page-results/${moviesCtx?.inputText}/1`);
+      } else {
+        console.log("no answer from server");
+        messageCtx?.changeMessage("no answer from server", "error");
+      }
+
+      // console.log(moviesCtx?.movieList, 11);
+    } catch (e) {
+      console.log(e, 41);
     }
-    moviesCtx?.handleIsUpdateFromServer(true);
-    navigate(`/movie-page-results/${moviesCtx?.inputText}/1`);
-    // console.log(moviesCtx?.movieList, 11);
   };
   return (
     <div className="SearchMovie-container">

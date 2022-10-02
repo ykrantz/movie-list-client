@@ -9,6 +9,10 @@ type movieItemType = {
 
 type movieListType= movieItemType[]
 
+type alertType = "error" | "success" | "warning" | "info"
+type messageType={messageStr:string | undefined,
+      alertKind : alertType | undefined
+  }| null
 // interface movieItemType  {
 //   id?: string;
 //   titleText?: { text?: string };
