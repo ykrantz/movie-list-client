@@ -4,3 +4,7 @@
      /* marginTop: 3 */
       /* flex: "20%" ;  */
 /* } */
+.test-p{
+    color: var(--text-primary);
+    /* color: blue; */
+}

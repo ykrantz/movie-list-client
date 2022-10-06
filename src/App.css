@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+  background-color: var(--background);
+  color:var(--text-primary)
+
+}
+
+.test3-p{
+  color: var(--text-primery);
+  /* color: yellow; */
+  
 }
 
 .App-logo {

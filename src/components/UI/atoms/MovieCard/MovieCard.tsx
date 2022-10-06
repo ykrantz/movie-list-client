@@ -7,6 +7,7 @@ import { Button, CardActionArea, CardActions, Grid } from "@mui/material";
 import CircularIndeterminate from "../CircularIndeterminate/CircularIndeterminate";
 import CardMediaVideo from "./CardMediaVideo/CardMediaVideo";
 import ImgTest from "../archeive/ImgTest";
+import "./MovieCard.css";
 // import { Button, CardActionArea, CardActions } from "@mui/material";
 
 type appProps = {
@@ -21,6 +22,7 @@ export default function MovieCard({ title, img, year }: appProps) {
     <Grid item xs={12} sm={6} lg={4}>
       {/* <Card sx={{ margin: "1%", padding: "20px", marginTop: 3, flex: "20%" }}> */}
       <Card sx={{ hight: 150 }}>
+        <p className="test-p">asdsad</p>
         <CardActionArea>
           <React.Suspense fallback={<CircularIndeterminate />}>
             <CardMediaVideo image={img} alt={title} />

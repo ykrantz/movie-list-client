@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CircularIndeterminate from "./components/UI/atoms/CircularIndeterminate/CircularIndeterminate";
 import AboutMePage from "./components/pages/AboutMePage/AboutMePage";
 import MessageContex from "./contex/messageContex";
+import ThemeContex from "./contex/themeContex";
 
 const MovieResultsPage = lazy(
   () => import("./components/pages/MovieResultsPage/MovieResultsPage")
@@ -27,6 +28,15 @@ function App() {
   const [isUpdateFromServer, setIsUpdateFromServer] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState<messageType | null>(null);
+  const [theme, setTheme] = useState(
+    JSON.parse(localStorage?.theme) ? JSON.parse(localStorage?.theme) : "light"
+  );
+
+  const switchTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    localStorage.theme = JSON.stringify(newTheme);
+    setTheme(newTheme);
+  };
 
   const handleIsLoading = (isLoading: boolean) => {
     setIsLoading(isLoading);
@@ -61,7 +71,8 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App" data-theme={theme}>
+      <p className="test3-p">test3</p>
       <MoviesContex.Provider
         value={{
           movieList,
@@ -77,19 +88,21 @@ function App() {
         <MessageContex.Provider
           value={{ message, changeMessage, waitingMessage }}
         >
-          <Suspense fallback={<CircularIndeterminate />}>
-            <Router>
-              <Routes>
-                <Route path="/" element={<HomePage />}></Route>
-                <Route path="/search" element={<HomePage />}></Route>
-                <Route
-                  path="/movie-page-results/:text/:page"
-                  element={<MovieResultsPage />}
-                ></Route>
-                <Route path="/about" element={<AboutMePage />}></Route>
-              </Routes>
-            </Router>
-          </Suspense>
+          <ThemeContex.Provider value={{ theme, switchTheme }}>
+            <Suspense fallback={<CircularIndeterminate />}>
+              <Router>
+                <Routes>
+                  <Route path="/" element={<HomePage />}></Route>
+                  <Route path="/search" element={<HomePage />}></Route>
+                  <Route
+                    path="/movie-page-results/:text/:page"
+                    element={<MovieResultsPage />}
+                  ></Route>
+                  <Route path="/about" element={<AboutMePage />}></Route>
+                </Routes>
+              </Router>
+            </Suspense>
+          </ThemeContex.Provider>
         </MessageContex.Provider>
       </MoviesContex.Provider>
     </div>

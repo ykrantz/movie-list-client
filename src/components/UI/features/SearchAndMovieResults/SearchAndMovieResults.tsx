@@ -7,7 +7,8 @@ import MoviePageLink from "../../atoms/MoviePageLink/MoviePageLink";
 import PaginationLink from "../../atoms/archeive/PaginationLink/PaginationLink";
 import MovieListResults from "../../elements/MovieListResults/MovieListResults";
 import SearchMovie from "../../elements/SearchMovie/SearchMovie";
-
+import "./SearchAndMovieResults.css";
+import themeContex from "../../../../contex/themeContex";
 // type movieItemType = {
 //   id?: string;
 //   titleText?: { text?: string };
@@ -31,6 +32,7 @@ const SearchAndMovieResults = ({ pageNum }: appProps): JSX.Element => {
   // );
 
   const moviesCtx = useContext(moviesContex);
+  const themeCtx = useContext(themeContex);
   // const handleMovieList = (list: Array<movieItemType>): void => {
   //   setMovieList(list);
   // };
@@ -42,9 +44,10 @@ const SearchAndMovieResults = ({ pageNum }: appProps): JSX.Element => {
   // );
 
   return (
-    <div>
+    <div data-theme={themeCtx?.theme ? themeCtx?.theme : ""}>
       {/* <PaginationLink /> */}
       {/* <SearchMovie handleMovieList={handleMovieList:(list: MovieList | [{}):void=>void} /> */}
+      <p className="text2p">test2</p>
       <SearchMovie />
       {/* {numberOfPages > 1 && (
         <MoviePageLink
