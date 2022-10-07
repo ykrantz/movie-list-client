@@ -1,6 +1,7 @@
 import "./MenuDrower.css";
 
 import MenuIcon from "@mui/icons-material/Menu";
+import MenuIconOutlined from "@mui/icons-material/Menu";
 import MusicVideoIcon from "@mui/icons-material/MusicVideo";
 
 import * as React from "react";
@@ -18,10 +19,14 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import { useNavigate } from "react-router";
 import { IconButton } from "@mui/material";
+import themeContex from "../../../../contex/themeContex";
 
 type Anchor = "top" | "left" | "bottom" | "right";
 
 export default function MenuDrower() {
+  const themeCtx = React.useContext(themeContex);
+  console.log(themeCtx?.theme, 51);
+
   const navigate = useNavigate();
   const [state, setState] = React.useState({
     top: false,
@@ -56,6 +61,7 @@ export default function MenuDrower() {
   ];
 
   const list = (anchor: Anchor) => (
+    // <div className="testDiv" >
     <Box
       sx={{
         width: anchor === "top" || anchor === "bottom" ? "auto" : 250,
@@ -63,6 +69,10 @@ export default function MenuDrower() {
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
+      height="100%"
+      // sx={{ backgroundColor: "black", color: "red" }}
+      // color={themeCtx?.theme === "dark" ? "var(--text-primary)" : ""}
+      // style={{ color: "var(--text-primary)" }}
     >
       <List style={{ marginTop: "4vh", marginLeft: "2vh" }}>
         {menuOptions.map(({ text, link, icon }, index) => (
@@ -79,9 +89,11 @@ export default function MenuDrower() {
         ))}
       </List>
     </Box>
+    // </div>
   );
   const anchor = "left";
   return (
+    // <div className="testDiv">
     <div>
       <React.Fragment key={anchor}>
         <IconButton
@@ -92,12 +104,16 @@ export default function MenuDrower() {
             //  justifyContent: "left", alignItems: "left"
           }}
         >
+          {/* <MenuIcon
+            fontSize="large"
+            sx={{ backgroundColor: "var(--icon-backgraoung-color-primary)" }}
+          /> */}
+
           <MenuIcon
             fontSize="large"
-            // color="primary"
-            // size="large"
-            // sx={{ justifyContent: "left", alignItems: "left" }}
+            sx={{ color: themeCtx?.theme === "dark" ? "white" : "" }}
           />
+
           {/* </Button> */}
         </IconButton>
         <SwipeableDrawer
@@ -106,7 +122,9 @@ export default function MenuDrower() {
           onClose={toggleDrawer(anchor, false)}
           onOpen={toggleDrawer(anchor, true)}
         >
+          {/* <div className="testDiv"> */}
           {list(anchor)}
+          {/* </div> */}
         </SwipeableDrawer>
       </React.Fragment>
     </div>

@@ -1,13 +1,17 @@
 .MoviePageLink-pageLink{
-
+/* color: black; */
+color: var(--link-color-primary);
     margin-right: 10px;
     
 }
 
 .MoviePageLink-pageLink:hover{
 
-    color:  blue;
+    /* color:  blue; */
+    color: var(--link-color-secondary);
+
     font-weight: bold;
+    /* font-size: large; */
  
     
 }
@@ -17,5 +21,7 @@
 }
 .MoviePageLink-currentPage{
     font-weight: bold;
-    color:  blue;
+    /* color:  blue; */
+    color: var(--link-color-secondary);
+
 }

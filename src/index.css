@@ -13,18 +13,36 @@ code {
 }
 
 :root{
-  --background: white;
-  /* --text-primery: black; */
-  --text-primery: green;
+  --background-primary: white;
+  /* --background-primary: blue; */
+  --text-primary: black;
+  /* --text-primary: green; */
+  --background-secondary:  Azure;
   --text-secondary: royalblue;
+  --title-color:  blueviolet;
   --accent:purple;
+  --icon-color-primary:"primary";
+  --link-color-primary:blue;
+  --link-color-secondary:rgb(16, 7, 92);
+  /* --icon-backgraoung-color-primary:"primary"; */
+  /* --color-primary: */
+  --icon-backgraoung-color-primary:"red";
+
   
 }
 
 [data-theme="dark"]{
-  --background: black;
-  --text-primery: white;
-  /* --text-primery: blue; */
+  --background-primary: black;
+  /* --background-primary: red; */
+  --background-secondary: DarkSlateGray;
+  --text-primary: white;
+  --link-color-primary:rgb(152, 156, 155);
+  --link-color-secondary :rgb(220, 236, 233);
+  /* --text-primary: blue; */
+  --title-color: rgb(226, 54, 54);
+  --icon-backgraoung-color-primary:"white";
+
+  --icon-color-primary:"error";
   --text-secondary: gray;
   --accent:darkred;
 }

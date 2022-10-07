@@ -25,6 +25,7 @@ const MoviePageLink = ({ numberOfPages, pagesPath }: appProps): JSX.Element => {
       {pageNums.map(
         (num) => (
           <Link
+            // color="black"
             className={`MoviePageLink-pageLink ${
               Number(page) === num && "MoviePageLink-currentPage"
             }`}

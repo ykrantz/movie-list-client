@@ -9,12 +9,16 @@ import AboutMePage from "./components/pages/AboutMePage/AboutMePage";
 import MessageContex from "./contex/messageContex";
 import ThemeContex from "./contex/themeContex";
 
+// import { useColorScheme } from "@mui/material/styles";
+
 const MovieResultsPage = lazy(
   () => import("./components/pages/MovieResultsPage/MovieResultsPage")
 );
 const HomePage = lazy(() => import("./components/pages/HomePage/HomePage"));
 
 function App() {
+  // const { mode, setMode } = useColorScheme();
+
   const initialMovieList: movieListType = [];
   const [movieList, setMovieList] = useState(
     localStorage.movieList
@@ -36,6 +40,8 @@ function App() {
     const newTheme = theme === "light" ? "dark" : "light";
     localStorage.theme = JSON.stringify(newTheme);
     setTheme(newTheme);
+
+    // setMode(mode === "dark" ? "light" : "dark");
   };
 
   const handleIsLoading = (isLoading: boolean) => {
@@ -72,7 +78,6 @@ function App() {
 
   return (
     <div className="App" data-theme={theme}>
-      <p className="test3-p">test3</p>
       <MoviesContex.Provider
         value={{
           movieList,

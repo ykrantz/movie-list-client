@@ -1,5 +1,6 @@
 .Header-title{
-    color: blueviolet;
+    color: var(--title-color);
+    /* color: blueviolet; */
     font-size: 3vh;
     /* width: 30%; */
 }

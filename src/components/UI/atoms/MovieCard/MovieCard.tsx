@@ -21,8 +21,13 @@ export default function MovieCard({ title, img, year }: appProps) {
     // <div className="MovieCard-Container">
     <Grid item xs={12} sm={6} lg={4}>
       {/* <Card sx={{ margin: "1%", padding: "20px", marginTop: 3, flex: "20%" }}> */}
-      <Card sx={{ hight: 150 }}>
-        <p className="test-p">asdsad</p>
+      <Card
+        sx={{
+          hight: 150,
+          backgroundColor: "var(--background-secondary)",
+          padding: "1vh",
+        }}
+      >
         <CardActionArea>
           <React.Suspense fallback={<CircularIndeterminate />}>
             <CardMediaVideo image={img} alt={title} />
@@ -44,6 +49,7 @@ export default function MovieCard({ title, img, year }: appProps) {
                 height:
                   "3em" /* height is 2x line-height, so two lines will display */,
                 overflow: "hidden",
+                color: "var(--text-primary)",
               }}
             >
               {/* <div className="MovieCard-movietitleAndYear"> */}

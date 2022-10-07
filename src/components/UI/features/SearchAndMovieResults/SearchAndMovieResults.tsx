@@ -44,10 +44,11 @@ const SearchAndMovieResults = ({ pageNum }: appProps): JSX.Element => {
   // );
 
   return (
-    <div data-theme={themeCtx?.theme ? themeCtx?.theme : ""}>
+    // <div data-theme={themeCtx?.theme ? themeCtx?.theme : ""}>
+    <div>
       {/* <PaginationLink /> */}
       {/* <SearchMovie handleMovieList={handleMovieList:(list: MovieList | [{}):void=>void} /> */}
-      <p className="text2p">test2</p>
+      {/* <div style={{ backgroundColor: "var(--text-primary)" }}>test4</div> */}
       <SearchMovie />
       {/* {numberOfPages > 1 && (
         <MoviePageLink
