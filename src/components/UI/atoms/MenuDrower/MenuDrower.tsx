@@ -21,11 +21,20 @@ import { useNavigate } from "react-router";
 import { IconButton } from "@mui/material";
 import themeContex from "../../../../contex/themeContex";
 
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+
 type Anchor = "top" | "left" | "bottom" | "right";
 
 export default function MenuDrower() {
   const themeCtx = React.useContext(themeContex);
   console.log(themeCtx?.theme, 51);
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: themeCtx?.theme ? themeCtx?.theme : "light",
+    },
+  });
 
   const navigate = useNavigate();
   const [state, setState] = React.useState({
@@ -95,38 +104,41 @@ export default function MenuDrower() {
   return (
     // <div className="testDiv">
     <div>
-      <React.Fragment key={anchor}>
-        <IconButton
-          size="large"
-          onClick={toggleDrawer(anchor, true)}
-          sx={{
-            marginLeft: 1,
-            //  justifyContent: "left", alignItems: "left"
-          }}
-        >
-          {/* <MenuIcon
+      <ThemeProvider theme={darkTheme}>
+        <CssBaseline />
+        <React.Fragment key={anchor}>
+          <IconButton
+            size="large"
+            onClick={toggleDrawer(anchor, true)}
+            sx={{
+              marginLeft: 1,
+              //  justifyContent: "left", alignItems: "left"
+            }}
+          >
+            {/* <MenuIcon
             fontSize="large"
             sx={{ backgroundColor: "var(--icon-backgraoung-color-primary)" }}
           /> */}
 
-          <MenuIcon
-            fontSize="large"
-            sx={{ color: themeCtx?.theme === "dark" ? "white" : "" }}
-          />
+            <MenuIcon
+              fontSize="large"
+              sx={{ color: themeCtx?.theme === "dark" ? "white" : "" }}
+            />
 
-          {/* </Button> */}
-        </IconButton>
-        <SwipeableDrawer
-          anchor={anchor}
-          open={state[anchor]}
-          onClose={toggleDrawer(anchor, false)}
-          onOpen={toggleDrawer(anchor, true)}
-        >
-          {/* <div className="testDiv"> */}
-          {list(anchor)}
-          {/* </div> */}
-        </SwipeableDrawer>
-      </React.Fragment>
+            {/* </Button> */}
+          </IconButton>
+          <SwipeableDrawer
+            anchor={anchor}
+            open={state[anchor]}
+            onClose={toggleDrawer(anchor, false)}
+            onOpen={toggleDrawer(anchor, true)}
+          >
+            {/* <div className="testDiv"> */}
+            {list(anchor)}
+            {/* </div> */}
+          </SwipeableDrawer>
+        </React.Fragment>
+      </ThemeProvider>
     </div>
   );
 }

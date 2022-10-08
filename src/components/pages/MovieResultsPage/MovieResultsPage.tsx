@@ -1,5 +1,6 @@
 import { Grid } from "@mui/material";
-import BodyMovieResults from "../../templates/BodyMovieResults/BodyMovieResults";
+import BodyMainMovieResults from "../../templates/BodyMainMovieResults/BodyMainMovieResults";
+import BodyMovieResults from "../../templates/archive/BodyMovieResults/BodyMovieResults";
 import Footer from "../../templates/Footer/Footer";
 // import Footer from "../../templates/Footer/Footer";
 import Header from "../../templates/Header/Header";
@@ -9,7 +10,7 @@ const MovieResultsPage = (): JSX.Element => {
     <div>
       {/* <Grid container spacing={2}> */}
       <Header />
-      <BodyMovieResults />
+      <BodyMainMovieResults pageType="movieResults" />
       <Footer />
       {/* </Grid> */}
     </div>

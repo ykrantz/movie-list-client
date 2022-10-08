@@ -2,10 +2,11 @@
     color: var(--title-color);
     /* color: blueviolet; */
     font-size: 3vh;
+    /* text-decoration: none */
     /* width: 30%; */
 }
 
-@media only screen  and (min-width:600px) {
+@media only screen  and (min-width:650px) {
     .Header-title{
         /* color:red; */
         font-size: 5vh;

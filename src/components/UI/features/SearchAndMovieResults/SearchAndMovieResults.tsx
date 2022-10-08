@@ -19,13 +19,14 @@ import themeContex from "../../../../contex/themeContex";
 // type appProps = {
 //   movieList: Array<movieItemType>;
 // };
-type appProps = {
-  pageNum?: number;
-};
+// type appProps = {
+//   pageNum?: number;
+// };
 // const MovieListResults = lazy(
 //   () => import("../../elements/MovieListResults/MovieListResults")
 // );
-const SearchAndMovieResults = ({ pageNum }: appProps): JSX.Element => {
+const SearchAndMovieResults = (): // { pageNum }: appProps
+JSX.Element => {
   // const [moviesList, setMovieList] = useState([{}]);
   // const [moviesList, setMovieList] = useState<movieListType>(
   //   {} as movieListType
