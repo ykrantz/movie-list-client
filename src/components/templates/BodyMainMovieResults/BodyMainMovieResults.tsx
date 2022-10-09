@@ -1,6 +1,4 @@
-// import SearchAndMovieResults from "../../UI/features/SearchAndMovieResults/SearchAndMovieResults";
 import SearchAndMovieResults from "../../UI/features/SearchAndMovieResults/SearchAndMovieResults";
-// import "./";
 import { useParams } from "react-router-dom";
 import { type } from "@testing-library/user-event/dist/type";
 
@@ -14,10 +12,7 @@ const BodyMainMovieResults = ({ pageType }: appProps): JSX.Element => {
 
   return (
     <div>
-      <SearchAndMovieResults
-      //  pageNum={pageNum}
-      />
-      {/* <SearchMovie /> */}
+      <SearchAndMovieResults />
     </div>
   );
 };

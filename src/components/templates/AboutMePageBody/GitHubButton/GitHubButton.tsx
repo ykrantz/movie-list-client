@@ -11,14 +11,8 @@ type appProps = {
 };
 
 type colorType = "primary" | "secondary";
-// const color: { client: string; server: string; link: string } = {
-//   client: "primary",
-//   server: "secondary",
-//   link: "secondary",
-// };
 
 const GitHubButton = ({ gitHubUrl, urlType }: appProps) => {
-  // const currentColor: colorType = color[urlType];
   const currentColor: colorType = "primary";
   return (
     <div>

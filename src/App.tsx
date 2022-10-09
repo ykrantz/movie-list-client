@@ -9,11 +9,6 @@ import AboutMePage from "./components/pages/AboutMePage/AboutMePage";
 import MessageContex from "./contex/messageContex";
 import ThemeContex from "./contex/themeContex";
 import { INITIAL_MOVIE_LIST } from "./utils/mainVariables";
-// import * as dotenv from "dotenv"; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
-// dotenv.config();
-// require("dotenv").config();
-// import express from "express";
-// import { useColorScheme } from "@mui/material/styles";
 
 const MovieResultsPage = lazy(
   () => import("./components/pages/MovieResultsPage/MovieResultsPage")
@@ -23,17 +18,12 @@ const HomePage = lazy(() => import("./components/pages/HomePage/HomePage"));
 const initialMovieList: movieListType = INITIAL_MOVIE_LIST;
 
 function App() {
-  // const { mode, setMode } = useColorScheme();
-  // dotenv.config();
-
   const [movieList, setMovieList] = useState(
     localStorage.movieList
       ? JSON.parse(localStorage.movieList)
       : initialMovieList
   );
-  // const [inputText, setInputText] = useState(
-  //   localStorage.searchText ? JSON.parse(localStorage.searchText) : ""
-  // );
+
   const [inputText, setInputText] = useState("");
   const [isUpdateFromServer, setIsUpdateFromServer] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -47,8 +37,6 @@ function App() {
     const newTheme = theme === "light" ? "dark" : "light";
     localStorage.theme = JSON.stringify(newTheme);
     setTheme(newTheme);
-
-    // setMode(mode === "dark" ? "light" : "dark");
   };
 
   const handleIsLoading = (isLoading: boolean) => {

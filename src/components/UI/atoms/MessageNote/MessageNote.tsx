@@ -3,25 +3,15 @@ import React from "react";
 
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
-// import CircularIndeterminate from "../CircularIndeterminate/CircularIndeterminate";
 import { CircularProgress, Typography } from "@mui/material";
 import { alertType, messageType } from "../../../../types/types";
 
-// type appProps = {
-//   message: string;
-//   type: "error" | "success" | "warning" | "info";
-// };
 type appProps = {
   messageStr: string | undefined;
   alertKind: alertType | undefined;
 };
-// type appProps < messageType>;
-
-// messageType;
 
 const MessageNote = ({ messageStr, alertKind }: appProps) => {
-  // console.log({ messageStr }, 52);
-
   return (
     <div>
       <Stack
@@ -31,7 +21,6 @@ const MessageNote = ({ messageStr, alertKind }: appProps) => {
         display={"flex"}
       >
         {messageStr === "Waiting for results from server" && (
-          // <CircularIndeterminate />
           <Typography align="center">
             <CircularProgress />
           </Typography>

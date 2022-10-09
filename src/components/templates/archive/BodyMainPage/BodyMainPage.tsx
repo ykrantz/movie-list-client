@@ -5,7 +5,6 @@ const BodyMainPage = (): JSX.Element => {
   return (
     <div>
       <SearchAndMovieResults />
-      {/* <SearchMovie /> */}
     </div>
   );
 };

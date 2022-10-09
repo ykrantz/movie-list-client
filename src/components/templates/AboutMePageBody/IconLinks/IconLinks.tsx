@@ -7,7 +7,6 @@ import { styled } from "@mui/material/styles";
 import GitHubButton from "../GitHubButton/GitHubButton";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { Tooltip } from "@mui/material";
-// import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 
 const CV_LINK =
@@ -42,9 +41,7 @@ export default function IconLinks() {
             </Tooltip>
           </a>
         </div>
-        {/* </Item> */}
 
-        {/* <Item> */}
         <div className="AboutMe-gitHubLink">
           <GitHubButton gitHubUrl="https://github.com/ykrantz" urlType="link" />
         </div>

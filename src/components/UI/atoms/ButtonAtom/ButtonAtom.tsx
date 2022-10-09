@@ -43,24 +43,11 @@ const ButtonAtom = ({
               color={color}
               onClick={buttonFunc}
               disabled={isDisabled}
-              // disabled={true}
             >
               {title}
             </IconButton>
           ) : (
-            <Button
-              variant="contained"
-              onClick={buttonFunc}
-              style={
-                {
-                  // maxWidth: "10px",
-                  // paddingLeft: "0",
-                  // paddingRight: "0",
-                  // padding: "0",
-                }
-              }
-            >
-              {/* {title?.length && title} */}
+            <Button variant="contained" onClick={buttonFunc} style={{}}>
               {title}
             </Button>
           )}

@@ -17,26 +17,21 @@ const MoviePageLink = ({ numberOfPages, pagesPath }: appProps): JSX.Element => {
   for (let i = 0; i < numberOfPages; i++) {
     pageNums.push(i + 1);
   }
-  // const handleLinkClick = () => {
-  //   movieCtx?.handleIsLoading(true);
-  // };
+
   return (
     <div className="MoviePageLink-container">
-      {pageNums.map(
-        (num) => (
-          <Link
-            // color="black"
-            className={`MoviePageLink-pageLink ${
-              Number(page) === num && "MoviePageLink-currentPage"
-            }`}
-            key={num}
-            to={`${pagesPath}/${text ? text : "demo"}/${num}`}
-          >
-            {num}
-          </Link>
-        )
-        // }
-      )}
+      {pageNums.map((num) => (
+        <Link
+          // color="black"
+          className={`MoviePageLink-pageLink ${
+            Number(page) === num && "MoviePageLink-currentPage"
+          }`}
+          key={num}
+          to={`${pagesPath}/${text ? text : "demo"}/${num}`}
+        >
+          {num}
+        </Link>
+      ))}
     </div>
   );
 };

@@ -1,11 +1,8 @@
 // import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { useContext } from "react";
-// import movieContex from "../../../contex/moviesContex";
-// import MessageNote from "../../UI/atoms/MessageNote/MessageNote";
-// import SearchAndMovieResults from "../../UI/features/SearchAndMovieResults/SearchAndMovieResults";
+
 import "./Footer.css";
-// import messageContex from "../../../contex/messageContex";
 import MessageNote from "../../UI/atoms/MessageNote/MessageNote";
 import messageContex from "../../../contex/messageContex";
 import moviesContex from "../../../contex/moviesContex";

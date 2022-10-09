@@ -1,14 +1,12 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-// import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions, Grid } from "@mui/material";
 import CircularIndeterminate from "../CircularIndeterminate/CircularIndeterminate";
 import CardMediaVideo from "./CardMediaVideo/CardMediaVideo";
 import ImgTest from "../archeive/ImgTest";
 import "./MovieCard.css";
-// import { Button, CardActionArea, CardActions } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import themeContex from "../../../../contex/themeContex";
@@ -28,11 +26,9 @@ export default function MovieCard({ title, img, year }: appProps) {
     },
   });
   return (
-    // <div className="MovieCard-Container">
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <Grid item xs={12} sm={6} lg={4}>
-        {/* <Card sx={{ margin: "1%", padding: "20px", marginTop: 3, flex: "20%" }}> */}
         <Card
           sx={{
             hight: 150,
@@ -43,14 +39,6 @@ export default function MovieCard({ title, img, year }: appProps) {
           <CardActionArea>
             <React.Suspense fallback={<CircularIndeterminate />}>
               <CardMediaVideo image={img} alt={title} />
-              {/* <ImgTest />  */}
-              {/* <CardMedia
-              component="img"
-              height="200 "
-              image={img}
-              alt={title}
-              sx={{ objectFit: "contain" }}
-            /> */}
             </React.Suspense>
             <CardContent>
               <Typography
@@ -64,22 +52,12 @@ export default function MovieCard({ title, img, year }: appProps) {
                   // color: "var(--text-primary)",
                 }}
               >
-                {/* <div className="MovieCard-movietitleAndYear"> */}
                 {title}
                 {year && `(${year})`}
-                {/* </div> */}
               </Typography>
-              {/* <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography> */}
             </CardContent>
           </CardActionArea>
-          <CardActions>
-            {/* <Button size="small" color="primary">
-            Share
-          </Button> */}
-          </CardActions>
+          <CardActions></CardActions>
         </Card>
       </Grid>
     </ThemeProvider>

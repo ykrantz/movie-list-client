@@ -187,14 +187,11 @@ type appProps = {
 
 export default function DarkModeSwitch({ onClickFunc }: appProps) {
   return (
-    // <FormGroup>
     <FormControlLabel
       control={<MaterialUISwitch sx={{ mt: 5 }} defaultChecked />}
       label=""
       onClick={onClickFunc}
       sx={{
-        // display: "flex",
-        // margin: "30px",
         position: "relative",
         alignItems: "center",
         alignContent: "center",

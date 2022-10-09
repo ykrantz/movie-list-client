@@ -63,13 +63,11 @@ export default function MenuDrower() {
       link: "/search",
       icon: <ScreenSearchDesktopOutlinedIcon />,
     },
-    // { text: "Playlists", link: "/playlists", icon: <MusicVideoIcon /> },
-    // { text: "Favorites", link: "/favorites", icon: "" },
+
     { text: "About", link: "/about", icon: <HelpCenterOutlinedIcon /> },
   ];
 
   const list = (anchor: Anchor) => (
-    // <div className="testDiv" >
     <Box
       sx={{
         width: anchor === "top" || anchor === "bottom" ? "auto" : 250,
@@ -78,9 +76,6 @@ export default function MenuDrower() {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
       height="100%"
-      // sx={{ backgroundColor: "black", color: "red" }}
-      // color={themeCtx?.theme === "dark" ? "var(--text-primary)" : ""}
-      // style={{ color: "var(--text-primary)" }}
     >
       <List style={{ marginTop: "4vh", marginLeft: "2vh" }}>
         {menuOptions.map(({ text, link, icon }, index) => (
@@ -97,11 +92,9 @@ export default function MenuDrower() {
         ))}
       </List>
     </Box>
-    // </div>
   );
   const anchor = "left";
   return (
-    // <div className="testDiv">
     <div>
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
@@ -111,20 +104,12 @@ export default function MenuDrower() {
             onClick={toggleDrawer(anchor, true)}
             sx={{
               marginLeft: 1,
-              //  justifyContent: "left", alignItems: "left"
             }}
           >
-            {/* <MenuIcon
-            fontSize="large"
-            sx={{ backgroundColor: "var(--icon-backgraoung-color-primary)" }}
-          /> */}
-
             <MenuIcon
               fontSize="large"
               sx={{ color: themeCtx?.theme === "dark" ? "white" : "" }}
             />
-
-            {/* </Button> */}
           </IconButton>
           <SwipeableDrawer
             anchor={anchor}
@@ -132,9 +117,7 @@ export default function MenuDrower() {
             onClose={toggleDrawer(anchor, false)}
             onOpen={toggleDrawer(anchor, true)}
           >
-            {/* <div className="testDiv"> */}
             {list(anchor)}
-            {/* </div> */}
           </SwipeableDrawer>
         </React.Fragment>
       </ThemeProvider>
