@@ -8,7 +8,11 @@ import CircularIndeterminate from "./components/UI/atoms/CircularIndeterminate/C
 import AboutMePage from "./components/pages/AboutMePage/AboutMePage";
 import MessageContex from "./contex/messageContex";
 import ThemeContex from "./contex/themeContex";
-
+import { INITIAL_MOVIE_LIST } from "./utils/mainVariables";
+// import * as dotenv from "dotenv"; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+// dotenv.config();
+// require("dotenv").config();
+// import express from "express";
 // import { useColorScheme } from "@mui/material/styles";
 
 const MovieResultsPage = lazy(
@@ -16,10 +20,12 @@ const MovieResultsPage = lazy(
 );
 const HomePage = lazy(() => import("./components/pages/HomePage/HomePage"));
 
+const initialMovieList: movieListType = INITIAL_MOVIE_LIST;
+
 function App() {
   // const { mode, setMode } = useColorScheme();
+  // dotenv.config();
 
-  const initialMovieList: movieListType = [];
   const [movieList, setMovieList] = useState(
     localStorage.movieList
       ? JSON.parse(localStorage.movieList)
@@ -33,8 +39,9 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState<messageType | null>(null);
   const [theme, setTheme] = useState(
-    JSON.parse(localStorage?.theme) ? JSON.parse(localStorage?.theme) : "light"
+    localStorage?.theme ? JSON.parse(localStorage?.theme) : "light"
   );
+  const [currentSearch, setCurrentSearch] = useState("");
 
   const switchTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -52,6 +59,10 @@ function App() {
     localStorage.searchText = JSON.stringify(inputText);
 
     setMovieList(movieList);
+  };
+
+  const handleSetCurrentSearch = (SearchText: string) => {
+    setCurrentSearch(SearchText);
   };
 
   const handleInputText = (text: string) => {
@@ -88,6 +99,8 @@ function App() {
           handleIsUpdateFromServer,
           isLoading,
           handleIsLoading,
+          currentSearch,
+          handleSetCurrentSearch,
         }}
       >
         <MessageContex.Provider

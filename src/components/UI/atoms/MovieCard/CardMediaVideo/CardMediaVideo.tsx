@@ -10,7 +10,7 @@ const CardMediaVideo = ({ image, alt }: appProp) => {
       image={image}
       alt={alt}
       component="img"
-      height="200 "
+      height="150 "
       sx={{ objectFit: "contain" }}
     />
   );

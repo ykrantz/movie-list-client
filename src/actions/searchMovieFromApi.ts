@@ -3,7 +3,8 @@ import { movieListType } from "../types/types";
 // max LIMIT of movie number is 50
 const LIMIT_NUM_MOVIES = 50 ;
 const axios = require("axios");
-
+// import * as dotenv from "dotenv"; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+// dotenv.config();
 
 // const formolizeStrintToURL=(str:string):string=>{
 //     const strSplitToWords:string[]= str.split(" ")
@@ -23,13 +24,14 @@ const searchMovieFromApi=(str:string|undefined):movieListType=>{
 // let moviesList: object[]|object={};
 
 console.log("serachingg for", {str});
+console.log(process.env.REACT_APP_S3_BUCKET,55,process.env.REACT_APP_RAPID_API_MOVIES_DATABASE_KEY)
 
     const options = {
         method: 'GET',
         url: `https://moviesdatabase.p.rapidapi.com/titles/search/title/${str}`,
         params: {info: 'mini_info', limit: LIMIT_NUM_MOVIES, page: '1', titleType: 'movie'},
         headers: {
-          'X-RapidAPI-Key': '40753c6082msh6d9d419e1a62c93p1b3943jsn9c7ef6262732',
+          'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_MOVIES_DATABASE_KEY,
           'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
         }
       };

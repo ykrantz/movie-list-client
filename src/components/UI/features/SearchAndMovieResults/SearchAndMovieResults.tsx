@@ -46,7 +46,7 @@ JSX.Element => {
 
   return (
     // <div data-theme={themeCtx?.theme ? themeCtx?.theme : ""}>
-    <div>
+    <div className="SearchAndMovieResults-container">
       {/* <PaginationLink /> */}
       {/* <SearchMovie handleMovieList={handleMovieList:(list: MovieList | [{}):void=>void} /> */}
       {/* <div style={{ backgroundColor: "var(--text-primary)" }}>test4</div> */}

@@ -37,7 +37,7 @@ console.log("serachingg for", {str});
         url: `https://moviesdatabase.p.rapidapi.com/titles/search/keyword/${str}`,
         params: {info: 'mini_info', limit: '10', page: '1', titleType: 'movie'},
         headers: {
-          'X-RapidAPI-Key': '40753c6082msh6d9d419e1a62c93p1b3943jsn9c7ef6262732',
+          'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_MOVIES_DATABASE_KEY,
           'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
         }
       };

@@ -58,30 +58,23 @@ const SearchMovie = (): JSX.Element => {
 
       // const moviesListResults: movieListType | [{}] =
       // const moviesListResults: movieListType = await searchMovieFromApi(
+      if (moviesCtx?.currentSearch === moviesCtx?.inputText) {
+        // console.log("Already searched");
+        messageCtx?.changeMessage("Already searched", "error");
+        throw "Already searched";
+      }
       moviesCtx?.handleIsLoading(true);
+
+      moviesCtx?.handleSetCurrentSearch(moviesCtx?.inputText);
 
       const moviesListResults: any = await searchMovieFromApi(
         moviesCtx?.inputText
-        // "lion"
       );
-      console.log({ moviesListResults }, 42);
 
-      // const moviesListResults: any = await searchMovieFromApiByKeyword(
-      //   moviesCtx?.inputText
-      //   // "lion"
-      // );
-      // console.log({ moviesListResults });
-
-      // const moviesListResults: Array<movieItemType> =
-      //TODO: search input from API
-      // console.log({ moviesListResults }, 10);
       moviesCtx?.handleIsLoading(false);
       if (moviesListResults) {
         moviesCtx?.handleIsUpdateFromServer(true);
         const filteredMovieList = filterMovieList(moviesListResults?.results);
-        // moviesCtx?.handleMovieList(moviesListResults.results);
-        // moviesCtx?.handleMovieList(moviesListResults?.results);
-        console.log({ filteredMovieList });
 
         moviesCtx?.handleMovieList(filteredMovieList);
         navigate(`/movie-page-results/${moviesCtx?.inputText}/1`);
@@ -90,25 +83,18 @@ const SearchMovie = (): JSX.Element => {
         moviesCtx?.handleMovieList([]);
         messageCtx?.changeMessage("no answer from server", "error");
       }
-
-      // console.log(moviesCtx?.movieList, 11);
     } catch (e) {
-      console.log(e, 41);
+      console.log("error:", e);
     }
   };
   return (
     <div className="SearchMovie-container">
-      {/* <Grid container spacing={2}>
-        <Grid item xs={4}> */}
       <Stack
         direction="row"
         spacing={1}
         justifyContent="center"
         alignItems="center"
-
-        // padding="5"
       >
-        {/* <Grid item xs={2}> */}
         <ButtonAtom
           title={<ClearIcon />}
           buttonFunc={deleteInput}
@@ -117,12 +103,9 @@ const SearchMovie = (): JSX.Element => {
           tooltipTitle="Clear"
           isDisabled={moviesCtx?.inputText ? false : true}
         />
-        {/* </Grid> */}
-        {/* <Grid item xs={6}> */}
+
         <InputTextAtom label="movie name" funcOnEnterPress={serachMoviesFunc} />
-        {/* </Grid> */}
-        {/* <ButtonAtom title="search" buttonFunc={serachMoviesFunc} /> */}
-        {/* <Grid item xs={2}> */}
+
         <ButtonAtom
           title={<SearchIcon />}
           buttonFunc={serachMoviesFunc}
@@ -131,10 +114,7 @@ const SearchMovie = (): JSX.Element => {
           tooltipTitle="serach movie"
           isDisabled={moviesCtx?.inputText ? false : true}
         />
-        {/* </Grid> */}
       </Stack>
-      {/* </Grid> */}
-      {/* </Grid> */}
     </div>
   );
 };

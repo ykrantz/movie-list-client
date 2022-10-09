@@ -12,7 +12,10 @@ type MoviesContextType = {
   handleIsUpdateFromServer:(isUpdated:boolean)=>void,
   isLoading:boolean,
   handleIsLoading:(isUpdated:boolean)=>void,
+  currentSearch:string,
+  handleSetCurrentSearch:(SearchText: string)=>void
   // message:messageType,
+
   // changeMessage:(str: string, type: alertType )=> void,
   // waitingMessage:()=>void, 
 }

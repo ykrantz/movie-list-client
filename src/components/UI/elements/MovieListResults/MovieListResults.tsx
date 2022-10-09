@@ -6,6 +6,7 @@ import MovieList from "../../atoms/MovieList/MovieList";
 // import * as React from "react";
 import { MAX_ITEM_IN_PAGE } from "../../../../utils/mainVariables";
 import MoviePageLink from "../../atoms/MoviePageLink/MoviePageLink";
+import "./MovieListResults.css";
 // type movieItemType = {
 //   id?: string;
 //   titleText?: { text?: string };

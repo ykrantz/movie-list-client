@@ -20,7 +20,7 @@ type appProps = {
 // messageType;
 
 const MessageNote = ({ messageStr, alertKind }: appProps) => {
-  console.log({ messageStr }, 52);
+  // console.log({ messageStr }, 52);
 
   return (
     <div>

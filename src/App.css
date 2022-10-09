@@ -1,8 +1,12 @@
 .App {
   text-align: center;
+  color:var(--text-primary);
+  /* background-color: var(--background-primary);
+  min-height:100vh ; */
   background-color: var(--background-primary);
-  color:var(--text-primary)
-
+  min-height:100vh ;
+  /* min-height:100vh ; */
+  overflow: hidden;
 }
 
 

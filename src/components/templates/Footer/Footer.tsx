@@ -9,6 +9,7 @@ import "./Footer.css";
 import MessageNote from "../../UI/atoms/MessageNote/MessageNote";
 import messageContex from "../../../contex/messageContex";
 import moviesContex from "../../../contex/moviesContex";
+import MovieListResults from "../../UI/elements/MovieListResults/MovieListResults";
 
 const Footer = (): JSX.Element => {
   const messageCtx = useContext(messageContex);
@@ -23,6 +24,7 @@ const Footer = (): JSX.Element => {
 
         {MovieCtx?.movieList && MovieCtx.movieList.length > 0 && (
           <HashLink to="#" smooth>
+            {/* <HashLink to={"/#movieListResults"} smooth> */}
             return to top
           </HashLink>
         )}

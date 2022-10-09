@@ -30,9 +30,7 @@ const MoviePageLink = ({ numberOfPages, pagesPath }: appProps): JSX.Element => {
               Number(page) === num && "MoviePageLink-currentPage"
             }`}
             key={num}
-            // to={`${pagesPath}/${num}`}
-            to={`${pagesPath}/${text}/${num}`}
-            // onClick={handleLinkClick}
+            to={`${pagesPath}/${text ? text : "demo"}/${num}`}
           >
             {num}
           </Link>

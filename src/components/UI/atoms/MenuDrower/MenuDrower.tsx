@@ -28,7 +28,6 @@ type Anchor = "top" | "left" | "bottom" | "right";
 
 export default function MenuDrower() {
   const themeCtx = React.useContext(themeContex);
-  console.log(themeCtx?.theme, 51);
 
   const darkTheme = createTheme({
     palette: {
