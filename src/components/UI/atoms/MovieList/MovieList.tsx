@@ -4,7 +4,6 @@ import List from "@mui/material/List";
 import { useNavigate, useParams } from "react-router-dom";
 import { useContext } from "react";
 
-import MovieItem from "../archeive/MovieItem/MovieItem";
 import { movieListType } from "../../../../types/types";
 import MovieCard from "../MovieCard/MovieCard";
 import "./MovieList.css";

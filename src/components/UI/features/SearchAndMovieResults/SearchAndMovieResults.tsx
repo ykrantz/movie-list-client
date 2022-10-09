@@ -7,7 +7,6 @@ import {
 } from "../../../../utils/mainVariables";
 import CircularIndeterminate from "../../atoms/CircularIndeterminate/CircularIndeterminate";
 import MoviePageLink from "../../atoms/MoviePageLink/MoviePageLink";
-import PaginationLink from "../../atoms/archeive/PaginationLink/PaginationLink";
 import MovieListResults from "../../elements/MovieListResults/MovieListResults";
 import SearchMovie from "../../elements/SearchMovie/SearchMovie";
 import "./SearchAndMovieResults.css";

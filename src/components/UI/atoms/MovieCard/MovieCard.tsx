@@ -5,7 +5,6 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions, Grid } from "@mui/material";
 import CircularIndeterminate from "../CircularIndeterminate/CircularIndeterminate";
 import CardMediaVideo from "./CardMediaVideo/CardMediaVideo";
-import ImgTest from "../archeive/ImgTest";
 import "./MovieCard.css";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
