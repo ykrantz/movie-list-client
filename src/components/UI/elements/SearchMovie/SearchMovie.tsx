@@ -34,16 +34,16 @@ import messageContex from "../../../../contex/messageContex";
 // type appProps = {
 //   handleMovieList: (moviesList: Array<movieItemType>) => void;
 // };
-// type appProps = {
-//   handleMovieList: (moviesList: Array<movieItemType>) => void;
-// };
+type appProps = {
+  searchMoviesFunc: (textSearch: string) => Promise<boolean>;
+};
 // type appProps = {
 //   // handleMovieList: (moviesList: movieListType | {}) => void;
 //   handleMovieList: (moviesList: movieListType | {}) => void;
 // };
 
 // const SearchMovie = ({ handleMovieList }: appProps): JSX.Element => {
-const SearchMovie = (): JSX.Element => {
+const SearchMovie = ({ searchMoviesFunc }: appProps): JSX.Element => {
   const moviesCtx = useContext(moviesContex);
   const messageCtx = useContext(messageContex);
   const navigate = useNavigate();
@@ -54,39 +54,46 @@ const SearchMovie = (): JSX.Element => {
   };
   const serachMoviesFunc = async () => {
     try {
-      console.log("seraching", moviesCtx?.inputText);
-
-      // const moviesListResults: movieListType | [{}] =
-      // const moviesListResults: movieListType = await searchMovieFromApi(
-      if (moviesCtx?.currentSearch === moviesCtx?.inputText) {
-        // console.log("Already searched");
-        messageCtx?.changeMessage("Already searched", "error");
-        throw "Already searched";
-      }
-      moviesCtx?.handleIsLoading(true);
-
-      moviesCtx?.handleSetCurrentSearch(moviesCtx?.inputText);
-
-      const moviesListResults: any = await searchMovieFromApi(
-        moviesCtx?.inputText
-      );
-
-      moviesCtx?.handleIsLoading(false);
-      if (moviesListResults) {
-        moviesCtx?.handleIsUpdateFromServer(true);
-        const filteredMovieList = filterMovieList(moviesListResults?.results);
-
-        moviesCtx?.handleMovieList(filteredMovieList);
+      const textToSerach = moviesCtx?.inputText ? moviesCtx.inputText : "";
+      if (!textToSerach) throw "no text to search";
+      const hasResults = await searchMoviesFunc(textToSerach);
+      if (hasResults) {
         navigate(`/movie-page-results/${moviesCtx?.inputText}/1`);
-      } else {
-        console.log("no answer from server");
-        moviesCtx?.handleMovieList([]);
-        messageCtx?.changeMessage("no answer from server", "error");
       }
+      // try {
+      //   console.log("seraching", moviesCtx?.inputText);
+
+      //   // const moviesListResults: movieListType | [{}] =
+      //   // const moviesListResults: movieListType = await searchMovieFromApi(
+      //   if (moviesCtx?.currentSearch === moviesCtx?.inputText) {
+      //     // console.log("Already searched");
+      //     messageCtx?.changeMessage("Already searched", "error");
+      //     throw "Already searched";
+      //   }
+      //   moviesCtx?.handleIsLoading(true);
+
+      //   moviesCtx?.handleSetCurrentSearch(moviesCtx?.inputText);
+
+      //   const moviesListResults: any = await searchMovieFromApi(
+      //     moviesCtx?.inputText
+      //   );
+
+      //   moviesCtx?.handleIsLoading(false);
+      //   if (moviesListResults) {
+      //     moviesCtx?.handleIsUpdateFromServer(true);
+      //     const filteredMovieList = filterMovieList(moviesListResults?.results);
+
+      //     moviesCtx?.handleMovieList(filteredMovieList);
+      //     navigate(`/movie-page-results/${moviesCtx?.inputText}/1`);
+      //   } else {
+      //     console.log("no answer from server");
+      //     moviesCtx?.handleMovieList([]);
+      //     messageCtx?.changeMessage("no answer from server", "error");
     } catch (e) {
       console.log("error:", e);
     }
   };
+
   return (
     <div className="SearchMovie-container">
       <Stack
