@@ -7,4 +7,7 @@ export const INITIAL_MOVIE_LIST: movieListType= [
 
     
 ]
+
+export const RAPID_API_MOVIES_DATABASE_KEY:string="40753c6082msh6d9d419e1a62c93p1b3943jsn9c7ef6262732"
+
  

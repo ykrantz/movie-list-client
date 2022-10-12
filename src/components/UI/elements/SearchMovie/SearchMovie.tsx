@@ -5,7 +5,6 @@ import { movieListType } from "../../../../types/types";
 import filterMovieList from "../../../../actions/filterMovieList";
 import ButtonAtom from "../../atoms/ButtonAtom/ButtonAtom";
 import InputTextAtom from "../../atoms/InputTextAtom/InputTextAtom";
-import searchMovieFromApiByKeyword from "../../../../actions/searchMovieFromApiByKeyword";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
 import { Grid, Stack } from "@mui/material";
